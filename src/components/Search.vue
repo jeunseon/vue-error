@@ -6,7 +6,10 @@
             type="text" 
             placeholder="Search for Movies, Series & more" />
         <div class="selects">
-            <select>
+            <select
+            v-for="filter in filters"
+            :key="filter.name"
+            class="form-select">
                 <option></option>
             </select>
         </div>
