@@ -5,6 +5,11 @@
             class="form-control"
             type="text" 
             placeholder="Search for Movies, Series & more" />
+        <div class="selects">
+            <select>
+                <option></option>
+            </select>
+        </div>
     </div>
 </template>
 
@@ -12,7 +17,31 @@
 export default {
     data() {
         return {
-            title: ''
+            title: '',
+            type: 'movie',
+            number: 10,
+            year: '',
+            filters: [
+                {
+                    name: 'type',
+                    items: ['movie', 'series', 'episode']
+                },
+                {
+                    name: 'number',
+                    items: [10, 20, 30]
+                },
+                {
+                    name: 'year',
+                    items: (() => {
+                        const years = []
+                        const thisYear = new Date().getFullYear() // 2024
+                        for (let i = thisYear; i >= 1985; i -= 1) {
+                            years.push(i)
+                        }
+                        return years
+                    })()
+                },
+            ]
         }
     }
 }
