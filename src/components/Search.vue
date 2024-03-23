@@ -2,6 +2,7 @@
     <div class="container">
         <input 
             v-model="title"
+            class="form-control"
             type="text" 
             placeholder="Search for Movies, Series & more" />
     </div>
