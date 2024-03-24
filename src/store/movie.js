@@ -26,16 +26,14 @@ export default {
     },
     // 비동기
     actions: {
-        async searchMovies(context, payload) {
+        async searchMovies({ commit }, payload) {
             const {title, type, number, year } = payload
             const OMDB_API_KEY = '7035c60c'
 
             const res = await axios.get(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=1`)
             const {Search, totalResults } = res.data
-            context.commit('updateState', {
-                movies: Search,
-                message: 'Hello world!!',
-                loading: true
+            commit('updateState', {
+                movies: Search
             })
         }
     }
