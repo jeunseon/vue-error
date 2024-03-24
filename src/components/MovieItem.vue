@@ -1,13 +1,13 @@
 <template>
-    <div></div>
+    <div>{{ movie.Title }}</div>
 </template>
 
 <script>
 export default {
     props: {
         movie: {
-            typeL Object,
-            default: {}
+            type: Object,
+            default: () => ({})
         }
     }
 }
