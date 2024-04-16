@@ -31,7 +31,7 @@ export default {
             if(state.loading) {
                 return
             }
-            
+
             commit('updateState', {
                 message: '',
                 loading: true
@@ -80,14 +80,23 @@ export default {
                     loading: false
                 })
             }
+        },
+        async searchMovieWithId(context, payload) {
+            try {
+                const res = await _fetchMovie(payload)
+            } catch (error) {
+
+            }
         }
     }
 }
 
 function _fetchMovie(payload) {
-    const {title, type, year, page} = payload
+    const { title, type, year, page, id } = payload
     const OMDB_API_KEY = '7035c60c'
-    const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
+    const url = id 
+        ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}` 
+        : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
 
     return new Promise((resolve, reject) => {
         axios.get(url)
