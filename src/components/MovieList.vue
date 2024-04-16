@@ -3,6 +3,7 @@
         <div 
             :class="{'no-result': !movies.length}"
             class="inner">
+            <div class="spinner-border text-primary"></div>
             <div 
                 v-if="message" 
                 class="message">
