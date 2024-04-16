@@ -5,8 +5,10 @@
 <script>
 export default {
     created() {
+        console.log(this.$route)
         this.$store.dispatch('movie/searchMovieWithId', {
-            id: ''
+            // movie/tt4520988
+            id: this.$route.params.id
         })
     }
 }

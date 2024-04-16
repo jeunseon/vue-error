@@ -8,7 +8,8 @@ export default {
     state: () => ({
         movies: [],
         message: 'Search for the movie title!',
-        loading: false
+        loading: false,
+        theMovie: {}
     }),
     // computed!
     getters: {},
@@ -81,11 +82,28 @@ export default {
                 })
             }
         },
-        async searchMovieWithId(context, payload) {
+        // 단일 영화 정보
+        async searchMovieWithId({ state, commit }, payload) {
+            if(state.loading) return
+
+            commit('updateState', {
+                theMovie: {},
+                loading:true
+            })
+
             try {
                 const res = await _fetchMovie(payload)
+                commit('updateState', {
+                    theMovie: res.data
+                })
             } catch (error) {
-
+                commit('updateState', {
+                    theMovie: {}
+                })
+            } finally {
+                commit('updateState', {
+                    loading: false
+                })
             }
         }
     }
