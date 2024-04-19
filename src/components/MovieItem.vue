@@ -1,23 +1,25 @@
 <template>
-    <div 
-    :style="{ backgroundImage: `url(${movie.Poster})`}"
-    class="movie">
-    <Loader
-        v-if="imageLoading"
-        :size="1.5"
-        absolute/>
-        <div class="info">
-            <div class="year">
-                {{ movie.Year }}
+    <RouterLink 
+        :to="`/movie/${movie.imdbID}`"
+        :style="{ backgroundImage: `url(${movie.Poster})`}"
+        class="movie">
+        <Loader
+            v-if="imageLoading"
+            :size="1.5"
+            absolute/>
+            <div class="info">
+                <div class="year">
+                    {{ movie.Year }}
+                </div>
+                <div class="title">
+                    {{ movie.Title }}
+                </div>
             </div>
-            <div class="title">
-                {{ movie.Title }}
-            </div>
-        </div>
-    </div>
+    </RouterLink>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router'
 import Loader from '~/components/Loader'
 
 export default {
