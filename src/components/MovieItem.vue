@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
 import Loader from '~/components/Loader'
 
 export default {
