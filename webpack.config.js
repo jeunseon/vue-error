@@ -49,7 +49,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              additionalDate: '@import "~/scss/main";'
+              additionalData: '@import "~/scss/main";'
             }
           }
         ]
