@@ -8,6 +8,10 @@ export default createRouter({
     // Hash
     // https://google.com/#/search
     history: createWebHashHistory(),
+    // 스크롤 위치 초기화
+    scrollBehavior(){
+        return { top: 0 }
+    },
     // pages
     // https://google.com/about
     routes: [
