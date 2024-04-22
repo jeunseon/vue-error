@@ -114,5 +114,5 @@ export default {
 }
 
 function _fetchMovie(payload) {
-    axios.post()
+    axios.post('/.netlify/functions/movie', payload)
 }
