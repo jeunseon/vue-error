@@ -173,7 +173,7 @@ export default {
     }
     .specs {
         flex-grow: 1;
-        .titke {
+        .title {
             color: $black;
             font-family: 'Oswald', sans-serif;
             font-size: 70px;
